@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Count Program</title>
+    <style type="text/css">
+    *{
+        padding: 0;
+        margin: 0; 
+        box-sizing: border-box;
+        color: #2f1f31;
+        font-family: 'Poppins', Sans-Serif;
+    }
+     .container{
+        background-color: #fdebff;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 120px 0;
+      }
+      h1{
+        font-size: 3.5rem;
+        color: #2f1f31;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .text{
+        font-size: 1.5rem;
+      }
+      .inputCon{
+        background-color: #c8b3ca;
+        padding-inline: 15px 0;
+        width: 85%;
+        max-width: 450px;
+        border-radius: 4px; 
+        overflow: hidden;
+      }
+      input{
+        background-color: transparent;
+        padding: 18px 0;
+        padding-inline-end: 18px;
+        font-size: 17px;
+        font-weight: 500;
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text">Total Typed Words are:</h1>
+    <h1 class="count">0</h1>
+    <div class="inputCon">
+      <input type="text" placeholder="Type your words" id="input">
+    </div>
+  </div>
+  <script>
+    const count = document.querySelector('.count');
+    const input = document.querySelector('#input');
+    
+    input.addEventListener('input', () => {
+      let inputValue = input.value;
+      let totalCount = inputValue.trim().split(/\s+/).filter(space => space !== " " && space !== "." && space !== ",");
+      count.textContent = totalCount[0] === "" ? "0" : totalCount.length;
+    })
+  </script>
+</body>
+</html>
